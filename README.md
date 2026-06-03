@@ -27,8 +27,14 @@
 | **02-technical/** | 【技术方案】架构设计和技术实现 | `ec600m-auto-reconnect.md` ⭐ 核心技术 |
 | **03-implementation/** | 【实施计划】开发计划和会议 | `tech-meeting-agenda.md` ⭐ 明天会议 |
 | **04-operations/** | 【运维文档】环境配置和FAQ | `environment-setup.md` 环境配置 |
-| **socks5-monitoring/** | 【SOCKS5监控】端口检测和设备映射 | `reports/2026-06-03_device_mapping.md` ⭐ 最新报告 |
-| **docs/server-access/** | 【服务器访问】SSH连接和操作指南 | `README.md` ⭐ 访问指南 |
+
+### 专项分支
+
+| 分支 | 说明 | 访问方式 |
+|------|------|---------|
+| **socks5-check** | 【SOCKS5监控】端口检测、设备映射、监控脚本 | `git checkout socks5-check` 或 [在线查看](https://github.com/evpeterliu/cell_proxy_ip/tree/socks5-check) |
+
+💡 **说明：** SOCKS5监控系统已移到独立分支，查看 [SOCKS5_README.md](SOCKS5_README.md) 了解详情
 
 ### 归档文档
 
