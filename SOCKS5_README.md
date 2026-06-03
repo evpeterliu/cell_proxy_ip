@@ -1,29 +1,24 @@
 # SOCKS5监控系统
 
-**说明：** SOCKS5相关的所有监控、检测和文档已迁移到独立分支
+**说明：** SOCKS5监控系统已迁移到独立仓库
 
 ---
 
-## 📍 访问方式
+## 📍 新仓库地址
 
-### 查看SOCKS5监控系统
+**GitHub：** https://github.com/evpeterliu/socks5_port_check
 
+**克隆命令：**
 ```bash
-# 切换到socks5-check分支
-git checkout socks5-check
+git clone https://github.com/evpeterliu/socks5_port_check.git
 ```
-
-### 在线查看
-
-**GitHub分支链接：**  
-https://github.com/evpeterliu/cell_proxy_ip/tree/socks5-check
 
 ---
 
-## 📁 socks5-check分支内容
+## 📁 仓库内容
 
 ```
-socks5-check/
+socks5_port_check/
 ├── README.md              # 总览和快速开始
 ├── reports/               # 检测报告（按日期命名）
 │   ├── 2026-06-03_device_mapping.md
@@ -39,12 +34,13 @@ socks5-check/
 
 ---
 
-## 🎯 为什么独立分支？
+## 🎯 为什么独立仓库？
 
-1. **分离关注点** - SOCKS5监控与主项目代码分离
-2. **便于查找** - 所有SOCKS5相关文件集中在一个分支
-3. **独立维护** - 检测报告更新不影响主代码库
-4. **清晰结构** - main分支专注项目代码和需求文档
+1. **完全分离** - SOCKS5监控与主项目完全独立
+2. **专注功能** - 仓库只关注SOCKS5端口监控
+3. **便于查找** - 不需要切换分支，直接访问
+4. **独立维护** - 有自己的Issues、PRs和版本管理
+5. **清晰职责** - cell_proxy_ip专注硬件项目，socks5_port_check专注监控
 
 ---
 
@@ -53,26 +49,20 @@ socks5-check/
 ### 查看最新检测报告
 
 ```bash
-git checkout socks5-check
-cat socks5-check/reports/$(ls -t socks5-check/reports/ | head -1)
+git clone https://github.com/evpeterliu/socks5_port_check.git
+cd socks5_port_check
+cat reports/$(ls -t reports/ | head -1)
 ```
 
 ### 执行检测
 
 ```bash
-# 在socks5-check分支
 ssh -i ~/.ssh/server_key root@203.3.113.133 'for port in {21880..21896}; do \
     echo -n "端口 $port: "; \
     ip=$(timeout 5 curl -x socks5://ppp:ppp@codex.adusun.com:$port -s https://ip.sb 2>/dev/null); \
     [ -n "$ip" ] && echo "✅ $ip" || echo "❌ 不可用"; \
     sleep 0.5; \
 done'
-```
-
-### 切换回主分支
-
-```bash
-git checkout main
 ```
 
 ---
@@ -83,17 +73,29 @@ git checkout main
 - **推荐端口：** 21883（最稳定）
 - **服务器：** 203.3.113.133（中转）+ codex.adusun.com（SOCKS5）
 
-**详细信息：** 请切换到 `socks5-check` 分支查看
+**详细信息：** 访问 https://github.com/evpeterliu/socks5_port_check
 
 ---
 
 ## 📞 相关链接
 
-- **socks5-check分支：** https://github.com/evpeterliu/cell_proxy_ip/tree/socks5-check
-- **主分支（当前）：** https://github.com/evpeterliu/cell_proxy_ip/tree/main
-- **创建PR：** https://github.com/evpeterliu/cell_proxy_ip/pull/new/socks5-check
+- **SOCKS5监控仓库：** https://github.com/evpeterliu/socks5_port_check
+- **主项目仓库：** https://github.com/evpeterliu/cell_proxy_ip
+- **提交Issue：** https://github.com/evpeterliu/socks5_port_check/issues
+
+---
+
+## 🔄 迁移说明
+
+原来的 `socks5-check` 分支已废弃，所有内容已迁移到独立仓库 `socks5_port_check`。
+
+如果你本地还有旧分支，可以删除：
+```bash
+git branch -d socks5-check
+```
 
 ---
 
 **最后更新：** 2026-06-03  
-**分支创建时间：** 2026-06-03
+**迁移时间：** 2026-06-03  
+**新仓库创建：** 2026-06-03
