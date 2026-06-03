@@ -1,59 +1,93 @@
-# Archive - 归档文件
+# 历史文档归档
 
-**English:** Historical documents for reference only. Not part of current implementation.
-
-**中文说明：** 历史文档，仅供参考。这些不是当前实施方案。
+**目录说明：** 本目录存放项目的历史文档和旧版本报告
 
 ---
 
-## ⚠️ 重要说明
+## 📁 目录结构
 
-这个目录下的文档是**历史版本**，很多内容基于旧方案（30天开发+国内IP），**已经过时**。
-
-**当前最新需求请看：** `../01-requirements/requirements-2026-06-02.md`
-
----
-
-## 📁 目录说明
-
-| 目录 | 英文名 | 中文说明 | 内容 |
-|------|-------|---------|------|
-| `old-decisions/` | Old Decisions | 旧方案决策 | 基于30天+国内IP的方案分析（已过时） |
-| `ai-collaboration/` | AI Collaboration | AI协作方案 | 多沙盒并行开发的方案（归档） |
-| `meeting-drafts/` | Meeting Drafts | 会议草稿 | 早期的会议模板和准备材料 |
-| `deprecated/` | Deprecated | 已废弃 | 重复或完全过时的文档 |
+```
+archive/
+├── README.md                    # 本文件
+└── socks5-old-reports/          # SOCKS5旧检测报告
+    ├── 2026-06-02_test_report.md
+    └── SOCKS5_STATUS_2026-06-03.md
+```
 
 ---
 
-## 📂 详细内容
+## 📝 归档规则
 
-### old-decisions/ - 旧方案决策
-- `comprehensive-report.md` - 方案决策综合报告
-- `architect-analysis.md` - 技术架构师分析报告
-- `pm-analysis.md` - 产品经理分析报告
-- `ops-analysis.md` - 运维工程师分析报告
+### 归档时机
 
-### ai-collaboration/ - AI协作方案
-- `github-sync.md` - GitHub同步协作方案
-- `team-collaboration.md` - 团队协作方法文档
-- `infinite-sandbox.md` - 无限沙盒自主协作方案
-- `multi-sandbox-fast.md` - 极速开发方案（4沙盒并行）
-- `multi-sandbox-super.md` - 超级加速方案（8沙盒并行）
+- 报告超过30天
+- 文档版本更新后的旧版本
+- 被新文档替代的临时文档
+- 测试期间的实验性文档
 
-### meeting-drafts/ - 会议草稿
-- `meeting-minutes-template.md` - 技术对齐会议纪要（模板）
-- `meeting-prep-summary.md` - 对齐会议准备完毕总结
-- `quick-reference.md` - 方案一快速参考
+### 归档流程
 
-### deprecated/ - 已废弃
-- `project-overview.md` - 项目总览（和README重复）
-- `doc-index.md` - 文档索引（已过时）
-- `final-solution-v1.md` - 方案一最终实施方案（已被新需求替代）
+1. 将旧文档移动到对应的归档子目录
+2. 保持原文件名或添加日期前缀
+3. 在归档目录的README中记录归档原因
+4. 提交Git时注明"归档旧文档"
 
 ---
 
-## 🔗 查看最新文档
+## 🗂️ 子目录说明
 
-- 产品需求：`../01-requirements/`
-- 技术方案：`../02-technical/`
-- 实施计划：`../03-implementation/`
+### socks5-old-reports/
+
+**存放内容：** SOCKS5监控的历史报告
+
+**归档标准：** 
+- 30天以上的检测报告
+- 被新格式报告替代的旧格式报告
+- 测试期间的临时报告
+
+**当前文件：**
+- `2026-06-02_test_report.md` - 首次完整测试报告（600秒持续监控）
+- `SOCKS5_STATUS_2026-06-03.md` - 旧格式状态报告
+
+**最新报告位置：** [../socks5-monitoring/reports/](../socks5-monitoring/reports/)
+
+---
+
+## 📋 归档记录
+
+| 日期 | 文件名 | 原因 | 新版本位置 |
+|------|--------|------|-----------|
+| 2026-06-03 | 2026-06-02_test_report.md | 格式更新 | socks5-monitoring/reports/ |
+| 2026-06-03 | SOCKS5_STATUS_2026-06-03.md | 重复报告 | 已删除或合并 |
+
+---
+
+## 🔍 查找历史数据
+
+### 按日期查找
+
+```bash
+# 查找特定日期的报告
+find archive/ -name "*2026-06-02*"
+```
+
+### 按类型查找
+
+```bash
+# 查找所有SOCKS5报告
+find archive/socks5-old-reports/ -name "*.md"
+```
+
+---
+
+## ⚠️ 注意事项
+
+1. **不要删除归档文件** - 仅移动到archive目录
+2. **保持文件名** - 方便追溯历史
+3. **记录归档原因** - 在本README中更新归档记录
+4. **定期清理** - 超过1年的归档可考虑压缩或删除
+
+---
+
+**维护者：** 运维团队  
+**最后更新：** 2026-06-03

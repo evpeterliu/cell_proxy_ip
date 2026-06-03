@@ -1,0 +1,16 @@
+## 请在Luckfox SSH会话中运行以下命令：
+
+# 1. 解码 hello_arm5 (GOARM=5)
+base64 -d hello_arm5.b64 > hello_arm5
+chmod +x hello_arm5
+./hello_arm5
+
+# 如果成功，跳过下面。如果段错误，继续：
+
+# 2. 解码 hello_ultra (GOARM=5 ultra simple)
+base64 -d hello_ultra.b64 > hello_ultra
+chmod +x hello_ultra
+./hello_ultra
+
+# 如果还是段错误，尝试查看CPU信息：
+cat /proc/cpuinfo | grep -i "cpu\|features"
